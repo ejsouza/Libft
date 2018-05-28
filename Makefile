@@ -6,7 +6,7 @@
 #    By: esouza <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 10:27:07 by esouza            #+#    #+#              #
-#    Updated: 2018/05/16 15:59:50 by esouza           ###   ########.fr        #
+#    Updated: 2018/05/28 15:08:07 by esouza           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,13 @@ SRCS = ft_putchar.c \
 	   ft_strsplit.c \
 	   ft_wordcount.c \
 	   ft_wordlen.c \
-	   get_next_line.c
+	   get_next_line.c \
+	   ft_chose_itoa.c ft_flags.c ft_handle_percent.c ft_hash.c ft_hljz.c \
+	   ft_int.c ft_intmax_t_itoa.c ft_itoa_base.c ft_left_adjusted.c ft_no_frmt.c \
+	   ft_oct.c ft_parsing.c ft_printf.c ft_right_adjusted.c ft_select_function.c \
+	   ft_set_unicode_bits.c ft_signed_itoa.c ft_spaghetti1.c ft_spaghetti2.c \
+	   ft_unsigned_itoa_base.c ft_wchar.c ft_char_itoa.c ft_atoi_bi.c ft_string.c \
+	   ft_intlen.c
 
 CC = gcc  -Ilibft.h
 
