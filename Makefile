@@ -21,6 +21,7 @@ SRCS = ft_putchar.c \
 	   ft_swap.c \
 	   ft_toupper.c\
 	   ft_isprint.c \
+	   ft_isspace.c \
 	   ft_isascii.c \
 	   ft_isalnum.c \
 	   ft_isdigit.c \
