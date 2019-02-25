@@ -6,11 +6,17 @@
 #    By: esouza <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 10:27:07 by esouza            #+#    #+#              #
-#    Updated: 2018/05/28 15:08:07 by esouza           ###   ########.fr        #
+#    Updated: 2019/02/25 12:33:42 by esouza           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+SRC_DIR = srcs
+
+OBJ_DIR = objs
+
+INLCUDE_DIR= includes
 
 SRCS = ft_putchar.c \
 	   ft_putstr.c \
@@ -76,33 +82,32 @@ SRCS = ft_putchar.c \
 	   ft_unsigned_itoa_base.c ft_wchar.c ft_char_itoa.c ft_atoi_bi.c ft_string.c \
 	   ft_intlen.c
 
-CC = gcc  -Ilibft.h
+CC = gcc  -Iinlcludes/libft.h
 
-AR = ar rc
+AR = ar rcs
 
 OBJS = $(SRCS:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra
+#OBJS = $(addprefix $(OBJ_DIR)/,$(notdir $(SRC)))
 
-$(NAME): $(OBJS)
-	@$(AR) $(NAME)  $(OBJS)
-	@echo "\033[0;36m    ==== Creating Library ===="
+CFLAGS = -Wall -Werror -Wextra -Iincludes
 
-$(OBJS):
-	@$(CC) $(CFLAGS) -c $(SRCS)
+$(NAME): $(OBJS:%.o=$(OBJ_DIR)/%.o) Makefile
+	@$(AR) $@ $(OBJS:%.o=$(OBJ_DIR)/%.o)
+	@echo "\033[0;36m            ==== Creating Library ===="
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@$(CC) $(srcs) $(CFLAGS) -c $< -o $@
 	@echo "\033[32m         ==== Creating Objcts Files ===="
 
 all: $(NAME)
 
 clean:
-	 @rm -f $(OBJS)
+	@rm -f $(OBJS:%.o=$(OBJ_DIR)/%.o)
 	 @echo "\033[33m    ==== All Object files deleted ===="
 
 fclean: clean
 	 @rm -f $(NAME)
-	 @echo "\033[31m    ==== Every thing deleted ===="
-
-out:
-	rm -f a.out
+	 @echo "\033[31m       ==== Everything deleted ===="
 
 re: fclean all
